@@ -53,7 +53,7 @@ def calc_temps(start_date, end_date):
 @app.route("/")
 
 def main():
-
+    session = Session(engine)
     """Lists all available routes."""
 
     return (
@@ -75,7 +75,7 @@ def main():
 @app.route("/api/v1.0/precipitation")
 
 def precipitation():
-
+    session = Session(engine)
     """Return a JSON representation of a dictionary where the date is the key and the value is 
 
     the precipitation value"""
@@ -111,7 +111,7 @@ def precipitation():
 @app.route("/api/v1.0/stations")
 
 def stations():
-
+    session = Session(engine)
     """Return a list of stations."""
 
     print("Received station api request.")
@@ -147,6 +147,8 @@ def stations():
 @app.route("/api/v1.0/tobs")
 
 def tobs():
+    session = Session(engine)
+    
 
     """Return a JSON list of temperature observations for the previous year."""
 
